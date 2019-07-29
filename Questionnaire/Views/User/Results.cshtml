@@ -1,0 +1,26 @@
+﻿
+<body>
+    <h2>Выберите тест</h2>
+    <table class="table table-sm table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Название теста</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Test testId in ViewBag.Tests)
+            {
+                <tr>
+                    <td>@testId.TestName</td>
+                    <td>@testId.TestDescription</td>
+                    <td>
+                        <button class="btn btn-primary" type="submit" onclick="location.href = '@Url.Action("TestEnd","User",new {@testId=testId.TestID})'">Выбрать</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>

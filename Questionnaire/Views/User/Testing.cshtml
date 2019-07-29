@@ -1,0 +1,18 @@
+﻿@model List<Answer>
+@{
+
+}
+@using (Html.BeginForm())
+{
+    <h4>@ViewBag.Question?.QuestionText</h4>
+    for (int i = 0; i < ViewBag.Choices.Count; i++)
+    {
+        @Html.EditorFor(m => m[i].UserChoices)
+        @: @ViewBag.Choices[i].ChoiceText <br />
+        <input type="hidden" id="[@i].ChoiceID" name="[@i].ChoiceID" value="@ViewBag.Choices[i].ChoiceID"/>
+    }
+    <input type="submit" />
+}
+
+
+

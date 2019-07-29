@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+<div class="text-center">
+    <h1 class="display-4">Добро пожаловать на страницу Администратора</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+   
+    <table class="table table-sm table-striped table-bordered">
+            <tr>
+                <th>
+                    <a class="btn btn-primary" asp-action="TestList">Список тестов</a><br>
+                    <a class="btn btn-primary" asp-action="CreateTest">Создать Тест</a>
+                </th>
+                <th>
+                    <a class="btn btn-primary" asp-action="UserList">Список Пользователей</a><br>                  
+                    <a class="btn btn-primary" asp-action="CreateUser">Создать Пользователя</a>                    
+                </th>
+                
+            </tr>
+        </table>
+</div>

@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <title>TestList</title>
+</head>
+<body>
+    <div class="panel-body">
+        <h2>Список тестов</h2>
+        <table class="table table-sm table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Номер вопроса </th>
+                    <th>Текст вопроса</th>                    
+                    <th>Варианты ответов</th>
+                    <th>Изменения</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Questionnaire.Models.Question question in Model)
+                {
+                    <tr>
+                        <td>
+                            @question.QuestionNumber
+                        </td>
+                        <td>
+                            @question.QuestionText
+                        </td>
+                        <td>
+                            @foreach (var choice in question.Choices)
+                            {
+                               <a> @choice.ChoiceText = @choice.IsCorrect</a><br/>                               
+                            }                            
+                        </td>                        
+                        <td>
+                            
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>

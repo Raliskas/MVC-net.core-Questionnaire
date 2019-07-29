@@ -1,0 +1,56 @@
+﻿
+@model Questionnaire.Models.User
+@{
+}
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Изменить данные пользователя</title>
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+    <div class="panel panel-success">
+        <div class="panel-heading text-center"><h4>Укажите данные пользователя</h4></div>
+        <div class="panel-body">
+            <form class="p-a-1" asp-action="EditUser" method="post">
+                <div asp-validation-summary="All"></div>
+                <div class="form-group">
+                    <label asp-for="FirstName">Имя:</label>
+                    <input class="form-control" asp-for="FirstName" />
+                    <span asp-validation-for="FirstName" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName">Фамилия:</label>
+                    <input class="form-control" asp-for="LastName" />
+                    <span asp-validation-for="LastName" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="BirthDate">Дата рожд:</label>
+                    <input class="form-control" asp-for="BirthDate" />
+                    <span asp-validation-for="BirthDate" />
+                </div>
+                <div class="form-group">
+                    <label>Роль пользователя</label>
+                    <select class="form-control" asp-for="RoleId">
+                        <option value="1">Admin</option>
+                        <option value="2">User</option>
+                    </select>
+                    <span asp-validation-for="RoleId" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email">Email:</label>
+                    <input class="form-control" asp-for="Email" />
+                    <span asp-validation-for="Email" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password">Пароль:</label>
+                    <input class="form-control" asp-for="Password" />
+                    <span asp-validation-for="Password" />
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary" type="submit">Изменить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

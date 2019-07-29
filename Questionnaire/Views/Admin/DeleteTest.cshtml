@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "~/Views/Shared/_Layout.cshtml";
+}
+@model Questionnaire.Models.Test
+<h2>Хотите удалить этот тест? </h2>
+
+    <form class="p-a-1" asp-action="DeleteTest" method="post">
+        <div asp-validation-summary="All"></div>
+        <input type="submit" value="Да" />
+        <a class="btn btn-primary" asp-action="TestList">Отмена</a>
+        
+    </form>

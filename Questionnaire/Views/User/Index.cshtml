@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+<div class="text-center">
+    <h1 class="display-4">Добро пожаловать @User.Identity.Name на страницу тестирования. Пожалуйста нажмите "Начать", когда будете готовы</h1>
+    <a class="btn btn-primary" asp-action="ChooseTest">Начать</a>
+    <a class="btn btn-primary" asp-action="Results">Ваши результаты</a>
+</div>
+

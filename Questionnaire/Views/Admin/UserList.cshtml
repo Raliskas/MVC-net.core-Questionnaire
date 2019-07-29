@@ -1,0 +1,64 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <title>UserList</title>
+</head>
+<body>
+    <div class="panel-body">
+        <h2>Зарегистрированные пользователи</h2>
+        <table class="table table-sm table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>UserId</th>
+                    <th>FirstName </th>
+                    <th>LastName</th>
+                    <th>Role</th>
+                    <th>BirthDate</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Questionnaire.Models.User r in Model)
+                {
+                <tr>
+                    <td>
+                        @r.ID
+                    </td>
+                    <td>
+                        @r.FirstName
+                    </td>
+                    <td>
+                        @r.LastName
+                    </td>
+                    <td>
+                        @r.RoleId
+                    </td>
+                    <td>
+                        @r.BirthDate
+                    </td>
+                    <td>
+                        @r.Email
+                    </td>
+                    <td>
+                        @r.Password
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" type="submit" onclick="location.href = '@Url.Action("EditUser","Admin",new {@id=r.ID})'">Изменить</button>
+                        <button class="btn btn-primary" type="submit" onclick="location.href = '@Url.Action("DeleteUser","Admin",new {@id=r.ID})'">Удалить</button>                       
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+
+

@@ -1,0 +1,55 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <title>TestList</title>
+</head>
+<body>
+    <div class="panel-body">
+        <h2>Список тестов</h2>
+        <table class="table table-sm table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>TestId</th>
+                    <th>Название </th>
+                    <th>Описание</th>
+                    <th>Автор</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Questionnaire.Models.Test test in Model)
+                {
+                <tr>
+                    <td>
+                        @test.TestID
+                    </td>
+                    <td>
+                        @test.TestName
+                    </td>
+                    <td>
+                        @test.TestDescription
+                    </td>
+                    <td>
+                        @test.AuthorID
+                    </td>
+
+                    <td>
+                        <button class="btn btn-primary" type="submit" onclick="location.href = '@Url.Action("EditTest","Admin",new {@id=test.TestID})'">Изменить</button>
+                        <button class="btn btn-primary" type="submit" onclick="location.href = '@Url.Action("DeleteTest","Admin",new {@id=test.TestID})'">Удалить</button>
+                        <button class="btn btn-primary" type="submit" onclick="location.href = '@Url.Action("QuestionList","Admin",new {@id=test.TestID})'">Глянуть вопросы</button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+
+
+

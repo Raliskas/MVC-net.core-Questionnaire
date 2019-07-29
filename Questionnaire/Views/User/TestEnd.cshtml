@@ -1,0 +1,46 @@
+﻿@model List<Question> 
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <title>Responses</title>
+</head>
+<body>
+    <div class="panel-body">
+        <h2>Результаты теста</h2>
+        <table class="table table-sm table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Вопрос</th>
+                    <th> Ваши ответы</th>
+                    @*<th>Балл</th>*@
+                </tr>
+            </thead>            
+            <tbody>
+                @foreach (var q in Model)
+                {
+                    <tr>
+                        <td>@q.QuestionNumber</td>
+                        <td>@q.QuestionText</td>
+                        <td>
+                            @foreach (var c in q.Choices)
+                            {
+                                @foreach (var a in c.Answers)
+                                {
+                                    <input type="checkbox" name="UserChoices" value=true checked=@a?.UserChoices disabled="disabled" />
+                                }
+                                @c?.ChoiceText
+                                <br />
+                            }
+                        </td>
+                    </tr>
+                }
+                    <tr>
+                    <td></td>
+                    <td>Последние результаты вашего теста:</td>
+                    <td>@ViewBag.Rating балла(-ов)</td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
